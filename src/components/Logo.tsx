@@ -34,9 +34,7 @@ export default function Logo({ className = "w-12 h-12" }: { className?: string }
       </g>
 
       {/* Center Accent - Teal/Cyan (representing the "VIBIN" energy) */}
-      <circle cx="50" cy="30" r="3" className="fill-teal-400" filter="url(#glow)">
-        <animate attributeName="opacity" values="0.6;1;0.6" duration="3s" repeatCount="indefinite" />
-      </circle>
+      <circle cx="50" cy="30" r="3" className="fill-teal-400" filter="url(#glow)" opacity="0.8" />
       
       {/* Optional "V" shape integration for VIBIN */}
       <path 
