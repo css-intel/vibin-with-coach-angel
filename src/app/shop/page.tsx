@@ -131,7 +131,7 @@ export default function ShopPage() {
                     {item.description}
                   </p>
                   
-                  {item.note && (
+                  {('note' in item && item.note) && (
                     <p className="text-sm text-warmth-700 bg-warmth-50 rounded-lg p-3 mb-4 italic">
                       {item.note}
                     </p>
