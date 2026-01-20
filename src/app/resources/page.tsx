@@ -129,18 +129,18 @@ export default function ResourcesPage() {
                     {item.description}
                   </p>
 
-                  {item.link && (
+                  {('link' in item && item.link) && (
                     <a
                       href={item.link}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-block bg-gradient-to-r from-lavender-500 to-lavender-600 text-white px-6 py-2 rounded-full font-medium hover:from-lavender-600 hover:to-lavender-700 transition-all"
                     >
-                      {item.cta || 'Learn More'}
+                      {('cta' in item) ? item.cta : 'Learn More'}
                     </a>
                   )}
 
-                  {item.links && (
+                  {('links' in item && item.links) && (
                     <div className="flex flex-wrap gap-3">
                       {item.links.map((link, linkIdx) => (
                         <a
@@ -156,7 +156,7 @@ export default function ResourcesPage() {
                     </div>
                   )}
 
-                  {item.contact && (
+                  {('contact' in item && item.contact) && (
                     <p className="text-sage-600 text-sm mt-6 pt-6 border-t border-sage-200">
                       <span className="font-semibold">Connect:</span> {item.contact}
                     </p>
