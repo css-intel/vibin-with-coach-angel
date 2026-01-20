@@ -201,6 +201,196 @@ export default function WorkWithMePage() {
         </div>
       </section>
 
+      {/* Signature Programs Section */}
+      <section className="py-24 bg-gradient-to-b from-lavender-50 to-cream-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <span className="inline-block px-4 py-2 bg-lavender-100 text-lavender-700 rounded-full text-sm font-medium mb-6">
+              Premium Programs
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-sage-900 mb-4">
+              V.I.B.I.N. Signature Programs
+            </h2>
+            <p className="text-sage-600 max-w-2xl mx-auto text-lg">
+              Comprehensive, bundled pathways designed for specific transformational goals. 
+              Each program combines coaching, education, and sustainable practices.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {/* Reset Program */}
+            <div className="bg-white rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all border-2 border-sage-200 hover:border-sage-400">
+              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-sage-400 to-sage-500 flex items-center justify-center text-white mb-6 text-3xl">
+                🔄
+              </div>
+              <h3 className="text-2xl font-serif font-bold text-sage-900 mb-3">
+                The Reset
+              </h3>
+              <p className="text-lavender-600 font-semibold mb-4">
+                Nervous System Restoration & Foundation
+              </p>
+              <p className="text-sage-600 leading-relaxed mb-6">
+                Designed for those feeling overwhelmed, burnt out, or disconnected. This 8-week intensive focuses 
+                on nervous system regulation, emotional release, and rebuilding your foundation.
+              </p>
+              <div className="space-y-3 mb-8">
+                <div className="flex items-start">
+                  <svg className="w-5 h-5 text-lavender-500 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  <span className="text-sage-600">2 coaching sessions/month</span>
+                </div>
+                <div className="flex items-start">
+                  <svg className="w-5 h-5 text-lavender-500 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  <span className="text-sage-600">Breathwork & somatic practices</span>
+                </div>
+                <div className="flex items-start">
+                  <svg className="w-5 h-5 text-lavender-500 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  <span className="text-sage-600">Reset Workbook & daily practices</span>
+                </div>
+                <div className="flex items-start">
+                  <svg className="w-5 h-5 text-lavender-500 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  <span className="text-sage-600">Email support between sessions</span>
+                </div>
+              </div>
+              <div className="bg-sage-50 rounded-2xl p-4 mb-6">
+                <p className="text-sage-700 font-bold text-2xl">$800</p>
+                <p className="text-sage-600 text-sm">8-week program</p>
+              </div>
+              <Link
+                href="/contact"
+                className="block w-full bg-gradient-to-r from-sage-500 to-sage-600 text-white px-6 py-3 rounded-full font-medium text-center hover:from-sage-600 hover:to-sage-700 transition-all"
+              >
+                Enroll in Reset
+              </Link>
+            </div>
+
+            {/* Transition Path */}
+            <div className="bg-white rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all border-2 border-teal-300 hover:border-teal-500 relative">
+              <div className="absolute -top-4 -right-4 bg-gradient-to-br from-teal-400 to-teal-500 text-white px-4 py-1 rounded-full text-sm font-bold">
+                MOST POPULAR
+              </div>
+              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-teal-400 to-teal-500 flex items-center justify-center text-white mb-6 text-3xl">
+                🌿
+              </div>
+              <h3 className="text-2xl font-serif font-bold text-sage-900 mb-3">
+                The Transition Path
+              </h3>
+              <p className="text-teal-600 font-semibold mb-4">
+                Life Disruption to Rebuilt Identity
+              </p>
+              <p className="text-sage-600 leading-relaxed mb-6">
+                The signature program for navigating major life changes. Combines transition coaching with 
+                nervous system work, identity reconstruction, and practical rebuilding strategies for health, 
+                relationships, finances, and spirit.
+              </p>
+              <div className="space-y-3 mb-8">
+                <div className="flex items-start">
+                  <svg className="w-5 h-5 text-teal-500 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  <span className="text-sage-600">2-3 sessions/month for 16 weeks</span>
+                </div>
+                <div className="flex items-start">
+                  <svg className="w-5 h-5 text-teal-500 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  <span className="text-sage-600">Spirit, Mind, Body & Wealth alignment</span>
+                </div>
+                <div className="flex items-start">
+                  <svg className="w-5 h-5 text-teal-500 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  <span className="text-sage-600">Transition & Rebuilding Workbook</span>
+                </div>
+                <div className="flex items-start">
+                  <svg className="w-5 h-5 text-teal-500 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  <span className="text-sage-600">Monthly group integration circles</span>
+                </div>
+                <div className="flex items-start">
+                  <svg className="w-5 h-5 text-teal-500 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  <span className="text-sage-600">Priority email & text support</span>
+                </div>
+              </div>
+              <div className="bg-teal-50 rounded-2xl p-4 mb-6">
+                <p className="text-teal-700 font-bold text-2xl">$2,400</p>
+                <p className="text-teal-600 text-sm">16-week transformational journey</p>
+              </div>
+              <Link
+                href="/contact"
+                className="block w-full bg-gradient-to-r from-teal-500 to-teal-600 text-white px-6 py-3 rounded-full font-medium text-center hover:from-teal-600 hover:to-teal-700 transition-all"
+              >
+                Start Your Transition Path
+              </Link>
+            </div>
+
+            {/* Specialized Pathways */}
+            <div className="bg-white rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all border-2 border-warmth-200 hover:border-warmth-400">
+              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-warmth-400 to-warmth-500 flex items-center justify-center text-white mb-6 text-3xl">
+                ✨
+              </div>
+              <h3 className="text-2xl font-serif font-bold text-sage-900 mb-3">
+                Specialized Pathways
+              </h3>
+              <p className="text-warmth-600 font-semibold mb-4">
+                Custom Coaching for Your Unique Needs
+              </p>
+              <p className="text-sage-600 leading-relaxed mb-6">
+                Custom-designed programs for specific life transitions. Examples: postpartum & motherhood 
+                transitions, health crisis healing, divorce & rebuilding, financial crisis recovery, career 
+                transformation, or any combination of transitions unique to you.
+              </p>
+              <div className="space-y-3 mb-8">
+                <div className="flex items-start">
+                  <svg className="w-5 h-5 text-warmth-500 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  <span className="text-sage-600">Completely customized to you</span>
+                </div>
+                <div className="flex items-start">
+                  <svg className="w-5 h-5 text-warmth-500 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  <span className="text-sage-600">Flexible duration & frequency</span>
+                </div>
+                <div className="flex items-start">
+                  <svg className="w-5 h-5 text-warmth-500 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  <span className="text-sage-600">Blend of coaching modalities</span>
+                </div>
+                <div className="flex items-start">
+                  <svg className="w-5 h-5 text-warmth-500 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  <span className="text-sage-600">Dedicated support & accountability</span>
+                </div>
+              </div>
+              <div className="bg-warmth-50 rounded-2xl p-4 mb-6">
+                <p className="text-warmth-700 font-bold text-lg">Custom Pricing</p>
+                <p className="text-warmth-600 text-sm">Based on scope & duration</p>
+              </div>
+              <Link
+                href="/contact"
+                className="block w-full bg-gradient-to-r from-warmth-500 to-warmth-600 text-white px-6 py-3 rounded-full font-medium text-center hover:from-warmth-600 hover:to-warmth-700 transition-all"
+              >
+                Design Your Program
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Services Grid */}
       <section className="py-24 bg-cream-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
