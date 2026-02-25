@@ -46,15 +46,16 @@ function HeroSection() {
           </div>
           
           {/* Hero Image - Profile Photo */}
-          <div className="relative hidden lg:block">
-            <div className="relative w-full aspect-square rounded-full bg-gradient-to-br from-lavender-200 via-sage-100 to-warmth-200 p-4 animate-float">
+          <div className="relative hidden lg:flex justify-center">
+            <div className="relative w-full max-w-md aspect-square rounded-full bg-gradient-to-br from-lavender-200 via-sage-100 to-warmth-200 p-4 animate-float mx-auto">
               <div className="w-full h-full rounded-full bg-cream-100 flex items-center justify-center overflow-hidden relative border-4 border-white shadow-2xl">
                 <Image 
                   src="/images/profilenew.png"
                   alt="Coach Angel - Certified Life Coach & Doula"
                   fill
-                  className="object-cover scale-125"
-                  style={{ objectPosition: '50% 25%' }}
+                  sizes="(min-width: 1024px) 28rem, 0px"
+                  className="object-cover"
+                  style={{ objectPosition: '50% 20%' }}
                   priority
                 />
               </div>
@@ -145,13 +146,15 @@ function AboutPreview() {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Image/Visual Side */}
           <div className="relative order-2 lg:order-1">
-            <div className="aspect-[4/5] rounded-3xl bg-gradient-to-br from-sage-100 via-lavender-100 to-warmth-100 p-4 rotate-2 hover:rotate-0 transition-transform duration-500">
+            <div className="aspect-[4/5] max-w-lg mx-auto rounded-3xl bg-gradient-to-br from-sage-100 via-lavender-100 to-warmth-100 p-4 hover:shadow-2xl transition-all duration-500">
               <div className="w-full h-full rounded-2xl bg-white overflow-hidden relative shadow-xl">
                  <Image 
                   src="/images/profilenew.png"
                   alt="Coach Angel - Holistic Wellness Guide"
                   fill
-                  className="object-cover object-top"
+                  sizes="(min-width: 1024px) 32rem, (min-width: 768px) 50vw, 100vw"
+                  className="object-cover"
+                  style={{ objectPosition: '50% 20%' }}
                 />
               </div>
             </div>

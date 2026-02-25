@@ -77,13 +77,15 @@ export default function AboutPage() {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Image Side */}
             <div className="relative">
-              <div className="aspect-[4/5] rounded-3xl bg-gradient-to-br from-sage-100 via-lavender-100 to-warmth-100 p-4">
+              <div className="aspect-[4/5] max-w-lg mx-auto rounded-3xl bg-gradient-to-br from-sage-100 via-lavender-100 to-warmth-100 p-4">
                 <div className="w-full h-full rounded-2xl bg-white overflow-hidden relative shadow-xl">
                   <Image 
                     src="/images/profilenew.png"
                     alt="Coach Angel - Certified Life Coach & Doula"
                     fill
-                    className="object-cover object-top"
+                    sizes="(min-width: 1024px) 32rem, (min-width: 768px) 50vw, 100vw"
+                    className="object-cover"
+                    style={{ objectPosition: '50% 20%' }}
                     priority
                   />
                 </div>
