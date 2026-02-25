@@ -1,5 +1,5 @@
 import { auth } from "@/lib/auth"
-import { NextResponse } from "next/server"
+import { NextRequest, NextResponse } from "next/server"
 
 const protectedRoutes: Record<string, string[]> = {
   "/dashboard": ["CLIENT", "COACH", "ADMIN"],
@@ -10,7 +10,8 @@ const protectedRoutes: Record<string, string[]> = {
 }
 
 export default auth((req) => {
-  const { pathname } = req.nextUrl
+  const nextReq = req as unknown as NextRequest
+  const { pathname } = nextReq.nextUrl
   const user = req.auth?.user
   const role = user?.role
 
@@ -18,8 +19,8 @@ export default auth((req) => {
   if (
     pathname.startsWith("/api/auth") ||
     pathname.startsWith("/api/webhooks") ||
-    pathname.startsWith("/api/packages") && req.method === "GET" ||
-    pathname.startsWith("/api/availability") && req.method === "GET" ||
+    (pathname.startsWith("/api/packages") && nextReq.method === "GET") ||
+    (pathname.startsWith("/api/availability") && nextReq.method === "GET") ||
     pathname === "/login" ||
     pathname.startsWith("/_next") ||
     pathname.startsWith("/images")
@@ -34,13 +35,13 @@ export default auth((req) => {
         if (pathname.startsWith("/api/")) {
           return NextResponse.json({ error: "Unauthorized" }, { status: 401 })
         }
-        return NextResponse.redirect(new URL("/login", req.url))
+        return NextResponse.redirect(new URL("/login", nextReq.url))
       }
       if (role && !roles.includes(role)) {
         if (pathname.startsWith("/api/")) {
           return NextResponse.json({ error: "Forbidden" }, { status: 403 })
         }
-        return NextResponse.redirect(new URL("/login", req.url))
+        return NextResponse.redirect(new URL("/login", nextReq.url))
       }
     }
   }

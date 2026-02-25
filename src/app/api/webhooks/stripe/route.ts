@@ -88,7 +88,7 @@ export async function POST(req: Request) {
 
       case "invoice.payment_succeeded": {
         const invoice = event.data.object as Stripe.Invoice
-        const sub = invoice.subscription as string
+        const sub = (invoice as any).subscription as string
 
         if (!sub) break
 
@@ -113,7 +113,7 @@ export async function POST(req: Request) {
 
       case "invoice.payment_failed": {
         const invoice = event.data.object as Stripe.Invoice
-        const sub = invoice.subscription as string
+        const sub = (invoice as any).subscription as string
 
         if (!sub) break
 

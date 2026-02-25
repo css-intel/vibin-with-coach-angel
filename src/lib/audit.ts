@@ -17,7 +17,7 @@ export async function createAuditLog(entry: AuditLogEntry) {
         action: entry.action,
         entity: entry.entity,
         entityId: entry.entityId,
-        metadata: entry.metadata || undefined,
+        metadata: (entry.metadata as any) || undefined,
         ipAddress: entry.ipAddress,
       },
     })
