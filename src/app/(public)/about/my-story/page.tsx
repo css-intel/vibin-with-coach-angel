@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -14,17 +15,37 @@ export default function MyStoryPage() {
         <div className="absolute top-20 right-0 w-96 h-96 bg-lavender-200 rounded-full blur-3xl opacity-30"></div>
         <div className="absolute bottom-0 left-0 w-80 h-80 bg-warmth-200 rounded-full blur-3xl opacity-30"></div>
         
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
-          <span className="inline-block px-4 py-2 bg-lavender-100 text-lavender-700 rounded-full text-sm font-medium mb-6">
-            Why I Do This Work
-          </span>
-          <h1 className="text-4xl sm:text-5xl font-serif font-bold text-sage-900 mb-6">
-            My Transition Story
-          </h1>
-          <p className="text-sage-600 max-w-2xl mx-auto text-lg leading-relaxed">
-            Transformation doesn't happen in spite of disruption—it happens because of it.
-            This is the story of how I rebuilt my life and why I'm now called to guide others through theirs.
-          </p>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="text-center md:text-left">
+              <span className="inline-block px-4 py-2 bg-lavender-100 text-lavender-700 rounded-full text-sm font-medium mb-6">
+                Why I Do This Work
+              </span>
+              <h1 className="text-4xl sm:text-5xl font-serif font-bold text-sage-900 mb-6">
+                My Transition Story
+              </h1>
+              <p className="text-sage-600 text-lg leading-relaxed">
+                Transformation doesn't happen in spite of disruption—it happens because of it.
+                This is the story of how I rebuilt my life and why I'm now called to guide others through theirs.
+              </p>
+            </div>
+            <div className="flex justify-center">
+              <div className="relative w-72 h-72 md:w-80 md:h-80">
+                <div className="absolute inset-0 bg-gradient-to-br from-lavender-300 to-warmth-300 rounded-3xl rotate-3"></div>
+                <div className="relative w-full h-full rounded-3xl overflow-hidden shadow-xl">
+                  <Image
+                    src="/images/angel-profile.jpg"
+                    alt="Coach Angel - My Transition Story"
+                    fill
+                    className="object-cover"
+                    style={{ objectPosition: '50% 20%' }}
+                    sizes="(max-width: 768px) 288px, 320px"
+                    priority
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
