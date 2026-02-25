@@ -1,8 +1,23 @@
 import Stripe from "stripe"
 
-export const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: "2024-12-18.acacia" as Stripe.LatestApiVersion,
-  typescript: true,
+// Lazy-init to avoid crash during `next build` page data collection
+let _stripe: Stripe | undefined
+
+export function getStripe(): Stripe {
+  if (!_stripe) {
+    _stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
+      apiVersion: "2024-12-18.acacia" as Stripe.LatestApiVersion,
+      typescript: true,
+    })
+  }
+  return _stripe
+}
+
+/** @deprecated Use getStripe() instead */
+export const stripe = new Proxy({} as Stripe, {
+  get(_, prop) {
+    return (getStripe() as any)[prop]
+  },
 })
 
 // ─── Create Stripe Product + Price for a coaching package ───
@@ -14,6 +29,7 @@ export async function createStripeProduct(pkg: {
   billingType: "ONE_TIME" | "RECURRING"
   recurringInterval?: "month" | "week"
 }) {
+  const stripe = getStripe()
   const product = await stripe.products.create({
     name: pkg.name,
     description: pkg.description,
@@ -39,10 +55,11 @@ export async function createStripeProduct(pkg: {
 // ─── Create Stripe Customer ────────────────────────────────
 
 export async function getOrCreateStripeCustomer(email: string, name?: string) {
-  const existing = await stripe.customers.list({ email, limit: 1 })
+  const s = getStripe()
+  const existing = await s.customers.list({ email, limit: 1 })
   if (existing.data.length > 0) return existing.data[0]
 
-  return stripe.customers.create({ email, name: name || undefined })
+  return s.customers.create({ email, name: name || undefined })
 }
 
 // ─── Format currency for display ───────────────────────────

@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic'
+
 import { auth } from "@/lib/auth"
 import { stripe } from "@/lib/stripe"
 import { prisma } from "@/lib/prisma"

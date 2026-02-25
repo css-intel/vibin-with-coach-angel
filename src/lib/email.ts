@@ -1,8 +1,18 @@
 import { Resend } from "resend"
 
-export const resend = new Resend(process.env.RESEND_API_KEY)
+// Lazy-init to avoid crash during `next build` page data collection
+let _resend: Resend | undefined
 
-const FROM = process.env.EMAIL_FROM || "Coach Angel <hello@vibinwithcoachangel.com>"
+function getResend(): Resend {
+  if (!_resend) {
+    _resend = new Resend(process.env.RESEND_API_KEY)
+  }
+  return _resend
+}
+
+function getFrom(): string {
+  return process.env.EMAIL_FROM || "Coach Angel <hello@vibinwithcoachangel.com>"
+}
 
 // ─── Send Email Helper ──────────────────────────────
 
@@ -15,8 +25,8 @@ interface SendEmailOptions {
 
 export async function sendEmail({ to, subject, html, replyTo }: SendEmailOptions) {
   try {
-    const { data, error } = await resend.emails.send({
-      from: FROM,
+    const { data, error } = await getResend().emails.send({
+      from: getFrom(),
       to,
       subject,
       html,

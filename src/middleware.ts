@@ -56,4 +56,7 @@ export const config = {
     "/api/:path*",
     "/login",
   ],
+  unstable_allowDynamic: [
+    "/node_modules/bcryptjs/**",
+  ],
 }
