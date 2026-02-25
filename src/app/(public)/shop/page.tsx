@@ -138,7 +138,7 @@ export default function ShopPage() {
                   )}
 
                   <Link
-                    href="/contact"
+                    href="/book"
                     className="inline-block bg-gradient-to-r from-sage-500 to-sage-600 text-white px-6 py-2 rounded-full font-medium hover:from-sage-600 hover:to-sage-700 transition-all"
                   >
                     Learn More
@@ -175,7 +175,6 @@ export default function ShopPage() {
               </p>
               <div className="space-y-3">
                 <p className="text-sage-700"><span className="font-semibold">Website:</span> <a href="https://krownedprinting.com" target="_blank" rel="noopener noreferrer" className="text-lavender-600 hover:underline">krownedprinting.com</a></p>
-                <p className="text-sage-700"><span className="font-semibold">Sister Company:</span> Owned and operated by Angel's sister with the same care and quality</p>
               </div>
             </div>
 
@@ -218,7 +217,7 @@ export default function ShopPage() {
 
           <div className="mt-12 text-center">
             <Link
-              href="/contact"
+              href="/book"
               className="inline-block bg-gradient-to-r from-lavender-500 to-lavender-600 text-white px-10 py-4 rounded-full font-medium hover:from-lavender-600 hover:to-lavender-700 transition-all shadow-lg hover:shadow-xl"
             >
               Get in Touch to Order

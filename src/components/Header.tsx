@@ -41,7 +41,7 @@ export default function Header() {
               </Link>
             ))}
             <Link
-              href="/contact"
+              href="/book"
               className="bg-gradient-to-r from-sage-500 to-sage-600 text-white px-6 py-2.5 rounded-full hover:from-sage-600 hover:to-sage-700 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
             >
               Book a Call
@@ -94,7 +94,7 @@ export default function Header() {
                 </Link>
               ))}
               <Link
-                href="/contact"
+                href="/book"
                 onClick={() => setIsMenuOpen(false)}
                 className="bg-gradient-to-r from-sage-500 to-sage-600 text-white px-6 py-2.5 rounded-full text-center mx-4"
               >

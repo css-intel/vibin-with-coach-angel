@@ -31,7 +31,7 @@ function HeroSection() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
-                href="/contact"
+                href="/book"
                 className="bg-gradient-to-r from-sage-500 to-sage-600 text-white px-8 py-4 rounded-full text-center font-medium hover:from-sage-600 hover:to-sage-700 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1"
               >
                 Book Your Free Discovery Call
@@ -50,10 +50,11 @@ function HeroSection() {
             <div className="relative w-full aspect-square rounded-full bg-gradient-to-br from-lavender-200 via-sage-100 to-warmth-200 p-4 animate-float">
               <div className="w-full h-full rounded-full bg-cream-100 flex items-center justify-center overflow-hidden relative border-4 border-white shadow-2xl">
                 <Image 
-                  src="/images/angel-profile.jpg"
+                  src="/images/profilenew.png"
                   alt="Coach Angel - Certified Life Coach & Doula"
                   fill
-                  className="object-cover"
+                  className="object-cover scale-125"
+                  style={{ objectPosition: '50% 25%' }}
                   priority
                 />
               </div>
@@ -86,7 +87,7 @@ function VibinSection() {
     {
       letter: 'B',
       word: 'Balance',
-      description: 'Find harmony between mind, body, and spirit through intentional practices.',
+      description: 'Find harmony between Spirit, Mind, & Body through intentional practices.',
       color: 'from-warmth-400 to-warmth-500',
     },
     {
@@ -113,7 +114,7 @@ function VibinSection() {
             The V.I.B.I.N Philosophy
           </h2>
           <p className="text-sage-600 max-w-2xl mx-auto text-lg">
-            A holistic healing path that honors your whole person—mind, body, and spirit.
+            A holistic healing path that honors your whole person—Spirit, Mind, & Body.
           </p>
         </div>
 
@@ -147,10 +148,10 @@ function AboutPreview() {
             <div className="aspect-[4/5] rounded-3xl bg-gradient-to-br from-sage-100 via-lavender-100 to-warmth-100 p-4 rotate-2 hover:rotate-0 transition-transform duration-500">
               <div className="w-full h-full rounded-2xl bg-white overflow-hidden relative shadow-xl">
                  <Image 
-                  src="/images/angel-profile.jpg"
+                  src="/images/profilenew.png"
                   alt="Coach Angel - Holistic Wellness Guide"
                   fill
-                  className="object-cover"
+                  className="object-cover object-top"
                 />
               </div>
             </div>
@@ -389,7 +390,7 @@ function CTASection() {
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link
-            href="/contact"
+            href="/book"
             className="bg-gradient-to-r from-lavender-500 to-lavender-600 text-white px-10 py-4 rounded-full font-medium hover:from-lavender-600 hover:to-lavender-700 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1"
           >
             Book Your Free Discovery Call

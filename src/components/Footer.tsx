@@ -100,14 +100,40 @@ export default function Footer() {
 
       {/* Disclaimer & Bottom Bar */}
       <div className="border-t border-sage-800 bg-sage-950">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 mb-6">
-          <p className="text-cream-400 text-xs leading-relaxed">
-            <span className="font-semibold">Website Disclaimer:</span> VIBIN with Coach Angel provides coaching, education, and holistic support services only. 
-            No guarantees are made regarding outcomes. The content provided on this website is for educational and informational purposes only and is not intended as medical, mental health, legal, or financial advice.
-          </p>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          <div className="space-y-4 text-cream-400 text-xs leading-relaxed">
+            <p>
+              <span className="font-semibold text-cream-300">Website Disclaimer:</span> VIBIN with Coach Angel provides coaching, education, and holistic support services only. 
+              No guarantees are made regarding outcomes. The content provided on this website is for educational and informational purposes only and is not intended as medical, mental health, legal, or financial advice.
+            </p>
+            <p>
+              <span className="font-semibold text-cream-300">Holistic Coaching & Wellness:</span> Coaching services including life coaching, breathwork, inner child work, and shadow work are personal development services. They are not therapy, counseling, or clinical treatment and do not diagnose or treat medical or psychological conditions. Always consult qualified healthcare providers for medical concerns.
+            </p>
+            <p>
+              <span className="font-semibold text-cream-300">Transition Coaching:</span> Transition Coaching supports personal development during life changes. It is not a substitute for therapy, medical care, or professional mental health treatment. If you are experiencing a mental health crisis, please contact a licensed professional or emergency services.
+            </p>
+            <p>
+              <span className="font-semibold text-cream-300">Doula Services:</span> Doula support provides emotional, physical, and informational support during pregnancy, birth, and postpartum. Doulas do not provide medical advice, perform clinical tasks, or replace the care of licensed healthcare providers.
+            </p>
+            <p>
+              <span className="font-semibold text-cream-300">Wealth Wellness & Financial Education:</span> Financial literacy and money mindset content is for educational purposes only. This is not financial advice, investment advice, or tax guidance. Consult licensed financial professionals for personalized advice.
+            </p>
+            <p>
+              <span className="font-semibold text-cream-300">Primerica Disclosure:</span> Angel operates as an independent representative of Primerica. Primerica is a separate, independent company offering life insurance and financial services. Any insurance or financial products are subject to suitability requirements and are provided by Primerica, not VIBIN with Coach Angel.
+            </p>
+            <p>
+              <span className="font-semibold text-cream-300">Real Estate Disclosure:</span> Real estate services are provided through Keller Williams, a separate, licensed brokerage. Real estate content is educational and does not constitute an offer to buy or sell property.
+            </p>
+            <p>
+              <span className="font-semibold text-cream-300">Shop & Products:</span> Products sold through this website are for personal use and wellness support. They are not intended to diagnose, treat, cure, or prevent any disease.
+            </p>
+            <p>
+              <span className="font-semibold text-cream-300">External Links:</span> This website may contain links to external websites for informational purposes. VIBIN with Coach Angel is not responsible for the content or practices of external sites.
+            </p>
+          </div>
         </div>
         
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 border-t border-sage-800">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-cream-400 text-sm">
               © {currentYear} VIBIN with Coach Angel. All rights reserved.

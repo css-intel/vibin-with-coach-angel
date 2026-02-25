@@ -21,7 +21,7 @@ export default function AboutPage() {
     },
     {
       title: 'Holistic Perspective',
-      description: 'I see you as a whole person—mind, body, and spirit are all connected in the healing journey.',
+      description: 'I see you as a whole person—Spirit, Mind, & Body are all connected in the healing journey.',
       icon: (
         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
@@ -80,10 +80,10 @@ export default function AboutPage() {
               <div className="aspect-[4/5] rounded-3xl bg-gradient-to-br from-sage-100 via-lavender-100 to-warmth-100 p-4">
                 <div className="w-full h-full rounded-2xl bg-white overflow-hidden relative shadow-xl">
                   <Image 
-                    src="/images/angel-profile.jpg"
+                    src="/images/profilenew.png"
                     alt="Coach Angel - Certified Life Coach & Doula"
                     fill
-                    className="object-cover"
+                    className="object-cover object-top"
                     priority
                   />
                 </div>
@@ -212,7 +212,16 @@ export default function AboutPage() {
               of unprocessed emotions, and to wonder if healing is even possible. I'm here to 
               tell you: it is. And you don't have to do it alone."
             </p>
-            <p className="text-sage-600 font-medium">— Coach Angel</p>
+            <p className="text-sage-600 font-medium mb-8">— Coach Angel</p>
+            <Link
+              href="/about/my-story"
+              className="inline-flex items-center text-lavender-600 font-medium hover:text-lavender-700 transition-colors group"
+            >
+              Read My Full Transition Story
+              <svg className="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </Link>
           </div>
         </div>
       </section>
@@ -230,12 +239,14 @@ export default function AboutPage() {
             I'd love to learn more about you and explore how we can work together. 
             Book a free discovery call—no pressure, just a warm conversation.
           </p>
-          <Link
-            href="/contact"
+          <a
+            href="/book"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-block bg-gradient-to-r from-lavender-500 to-lavender-600 text-white px-10 py-4 rounded-full font-medium hover:from-lavender-600 hover:to-lavender-700 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1"
           >
             Book Your Free Discovery Call
-          </Link>
+          </a>
         </div>
       </section>
     </div>

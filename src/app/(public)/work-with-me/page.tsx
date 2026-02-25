@@ -264,7 +264,7 @@ export default function WorkWithMePage() {
                 <p className="text-sage-600 text-sm">8-week program</p>
               </div>
               <Link
-                href="/contact"
+                href="/book"
                 className="block w-full bg-gradient-to-r from-sage-500 to-sage-600 text-white px-6 py-3 rounded-full font-medium text-center hover:from-sage-600 hover:to-sage-700 transition-all"
               >
                 Enroll in Reset
@@ -327,7 +327,7 @@ export default function WorkWithMePage() {
                 <p className="text-teal-600 text-sm">16-week transformational journey</p>
               </div>
               <Link
-                href="/contact"
+                href="/book"
                 className="block w-full bg-gradient-to-r from-teal-500 to-teal-600 text-white px-6 py-3 rounded-full font-medium text-center hover:from-teal-600 hover:to-teal-700 transition-all"
               >
                 Start Your Transition Path
@@ -381,7 +381,7 @@ export default function WorkWithMePage() {
                 <p className="text-warmth-600 text-sm">Based on scope & duration</p>
               </div>
               <Link
-                href="/contact"
+                href="/book"
                 className="block w-full bg-gradient-to-r from-warmth-500 to-warmth-600 text-white px-6 py-3 rounded-full font-medium text-center hover:from-warmth-600 hover:to-warmth-700 transition-all"
               >
                 Design Your Program
@@ -436,7 +436,7 @@ export default function WorkWithMePage() {
                     </div>
 
                     <Link
-                      href="/contact"
+                      href="/book"
                       className={`inline-block bg-gradient-to-r ${colors} text-white px-8 py-3 rounded-full font-medium hover:shadow-lg transition-all`}
                     >
                       Learn More & Book
@@ -484,23 +484,220 @@ export default function WorkWithMePage() {
             I'd love to learn more about you and explore how we can work together. 
             Book a free discovery call—no pressure, just a warm conversation.
           </p>
-          <Link
-            href="/contact"
-            className="inline-block bg-gradient-to-r from-lavender-500 to-lavender-600 text-white px-10 py-4 rounded-full font-medium hover:from-lavender-600 hover:to-lavender-700 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1"
-          >
-            Book Your Free Discovery Call
-          </Link>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              href="/book"
+              className="inline-block bg-gradient-to-r from-lavender-500 to-lavender-600 text-white px-10 py-4 rounded-full font-medium hover:from-lavender-600 hover:to-lavender-700 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+            >
+              Book Your Free Discovery Call
+            </Link>
+            <Link
+              href="/about/my-story"
+              className="inline-block border-2 border-cream-300 text-cream-100 px-10 py-4 rounded-full font-medium hover:bg-cream-100 hover:text-sage-900 transition-all"
+            >
+              Read My Story
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Wealth Wellness Education Section */}
+      <section className="py-24 bg-gradient-to-b from-white to-cream-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <span className="inline-block px-4 py-2 bg-warmth-100 text-warmth-700 rounded-full text-sm font-medium mb-6">
+              Educational Support
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-sage-900 mb-4">
+              Wealth Wellness Education
+            </h2>
+            <p className="text-sage-600 max-w-2xl mx-auto text-lg leading-relaxed">
+              True transition includes financial empowerment. These educational resources support your journey 
+              toward financial clarity, confidence, and security—without sales pressure or product pushing.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8 mb-12">
+            {/* Financial Literacy */}
+            <div className="bg-white rounded-2xl p-8 shadow-lg border border-sage-100 hover:shadow-xl transition-shadow">
+              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-warmth-100 to-warmth-200 flex items-center justify-center text-3xl mb-6">
+                💰
+              </div>
+              <h3 className="text-xl font-semibold text-sage-900 mb-2">Financial Literacy</h3>
+              <p className="text-lavender-600 font-medium text-sm mb-4">Budgeting, Credit & Debt Navigation</p>
+              <p className="text-sage-600 leading-relaxed mb-6">
+                Build practical financial foundations including budgeting basics, credit awareness, 
+                debt navigation strategies, and building financial confidence during major life transitions.
+              </p>
+              <ul className="space-y-2 text-sage-600 text-sm">
+                <li className="flex items-start">
+                  <svg className="w-5 h-5 mr-2 text-warmth-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  Understanding your relationship with money
+                </li>
+                <li className="flex items-start">
+                  <svg className="w-5 h-5 mr-2 text-warmth-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  Practical budgeting for life transitions
+                </li>
+                <li className="flex items-start">
+                  <svg className="w-5 h-5 mr-2 text-warmth-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  Credit building and debt navigation
+                </li>
+              </ul>
+            </div>
+
+            {/* Money Mindset */}
+            <div className="bg-white rounded-2xl p-8 shadow-lg border border-sage-100 hover:shadow-xl transition-shadow">
+              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-lavender-100 to-lavender-200 flex items-center justify-center text-3xl mb-6">
+                🧠
+              </div>
+              <h3 className="text-xl font-semibold text-sage-900 mb-2">Money Mindset Healing</h3>
+              <p className="text-lavender-600 font-medium text-sm mb-4">Nervous System & Money Stories</p>
+              <p className="text-sage-600 leading-relaxed mb-6">
+                Heal your relationship with money at the root level. Address money trauma, regulate your 
+                nervous system around finances, and rewrite the inherited beliefs that limit your abundance.
+              </p>
+              <ul className="space-y-2 text-sage-600 text-sm">
+                <li className="flex items-start">
+                  <svg className="w-5 h-5 mr-2 text-lavender-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  Identifying inherited money beliefs
+                </li>
+                <li className="flex items-start">
+                  <svg className="w-5 h-5 mr-2 text-lavender-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  Nervous system regulation around money
+                </li>
+                <li className="flex items-start">
+                  <svg className="w-5 h-5 mr-2 text-lavender-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  Rebuilding financial confidence
+                </li>
+              </ul>
+            </div>
+
+            {/* Financial Protection */}
+            <div className="bg-white rounded-2xl p-8 shadow-lg border border-sage-100 hover:shadow-xl transition-shadow">
+              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-teal-100 to-teal-200 flex items-center justify-center text-3xl mb-6">
+                🛡️
+              </div>
+              <h3 className="text-xl font-semibold text-sage-900 mb-2">Financial Protection & Legacy</h3>
+              <p className="text-teal-600 font-medium text-sm mb-4">Life Insurance & Generational Wealth Education</p>
+              <p className="text-sage-600 leading-relaxed mb-6">
+                Educational awareness about protecting your family and building generational wealth. 
+                Understand the importance of life insurance, emergency funds, and legacy planning.
+              </p>
+              <ul className="space-y-2 text-sage-600 text-sm mb-6">
+                <li className="flex items-start">
+                  <svg className="w-5 h-5 mr-2 text-teal-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  Understanding life insurance basics
+                </li>
+                <li className="flex items-start">
+                  <svg className="w-5 h-5 mr-2 text-teal-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  Building emergency reserves
+                </li>
+                <li className="flex items-start">
+                  <svg className="w-5 h-5 mr-2 text-teal-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  Generational wealth concepts
+                </li>
+              </ul>
+              <a
+                href="https://www.primerica.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block bg-gradient-to-r from-teal-500 to-teal-600 text-white px-6 py-2 rounded-full text-sm font-medium hover:from-teal-600 hover:to-teal-700 transition-all"
+              >
+                Learn About Financial Protection →
+              </a>
+            </div>
+
+            {/* Homeownership */}
+            <div className="bg-white rounded-2xl p-8 shadow-lg border border-sage-100 hover:shadow-xl transition-shadow">
+              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-sage-100 to-sage-200 flex items-center justify-center text-3xl mb-6">
+                🏠
+              </div>
+              <h3 className="text-xl font-semibold text-sage-900 mb-2">Homeownership Readiness</h3>
+              <p className="text-sage-600 font-medium text-sm mb-4">Real Estate Education & Preparation</p>
+              <p className="text-sage-600 leading-relaxed mb-6">
+                Educational resources for first-time and future homeowners. Learn about mortgage basics, 
+                homeownership preparation, and real estate investment principles.
+              </p>
+              <ul className="space-y-2 text-sage-600 text-sm mb-6">
+                <li className="flex items-start">
+                  <svg className="w-5 h-5 mr-2 text-sage-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  First-time homebuyer education
+                </li>
+                <li className="flex items-start">
+                  <svg className="w-5 h-5 mr-2 text-sage-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  Understanding mortgage basics
+                </li>
+                <li className="flex items-start">
+                  <svg className="w-5 h-5 mr-2 text-sage-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  Real estate investment awareness
+                </li>
+              </ul>
+              <a
+                href="https://realestatewithangel.kw.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block bg-gradient-to-r from-sage-500 to-sage-600 text-white px-6 py-2 rounded-full text-sm font-medium hover:from-sage-600 hover:to-sage-700 transition-all"
+              >
+                Explore Real Estate Education →
+              </a>
+            </div>
+          </div>
+
+          {/* Learn More Link */}
+          <div className="text-center">
+            <p className="text-sage-600 mb-4">
+              For additional wealth wellness resources and community support:
+            </p>
+            <Link
+              href="/resources"
+              className="inline-flex items-center text-lavender-600 font-medium hover:text-lavender-700 transition-colors group"
+            >
+              Visit Resources Page
+              <svg className="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </Link>
+          </div>
         </div>
       </section>
 
       {/* Disclaimer */}
       <section className="py-12 bg-cream-50 border-t border-sage-200">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
+          <div className="space-y-4 text-center">
             <p className="text-sm text-sage-600 leading-relaxed">
               <span className="font-semibold">Coaching Scope:</span> Coaching is a personal development and support service 
               focused on life transitions, emotional regulation, mindset, and self-empowerment. Coaching is not therapy, 
               counseling, or clinical treatment and does not diagnose or treat medical or psychological conditions.
+            </p>
+            <p className="text-sm text-sage-600 leading-relaxed">
+              <span className="font-semibold">Wealth Wellness Disclaimer:</span> Financial literacy and money mindset 
+              content is educational only and does not constitute financial, investment, or tax advice. Primerica 
+              financial services and Keller Williams real estate services are provided by separate, independent companies.
             </p>
           </div>
         </div>
