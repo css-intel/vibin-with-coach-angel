@@ -1,0 +1,58 @@
+import { auth } from "@/lib/auth"
+import { NextResponse } from "next/server"
+
+const protectedRoutes: Record<string, string[]> = {
+  "/dashboard": ["CLIENT", "COACH", "ADMIN"],
+  "/admin": ["ADMIN"],
+  "/api/admin": ["ADMIN"],
+  "/api/clients": ["ADMIN", "COACH"],
+  "/api/bookings": ["CLIENT", "COACH", "ADMIN"],
+}
+
+export default auth((req) => {
+  const { pathname } = req.nextUrl
+  const user = req.auth?.user
+  const role = user?.role
+
+  // Allow public routes and auth endpoints
+  if (
+    pathname.startsWith("/api/auth") ||
+    pathname.startsWith("/api/webhooks") ||
+    pathname.startsWith("/api/packages") && req.method === "GET" ||
+    pathname.startsWith("/api/availability") && req.method === "GET" ||
+    pathname === "/login" ||
+    pathname.startsWith("/_next") ||
+    pathname.startsWith("/images")
+  ) {
+    return NextResponse.next()
+  }
+
+  // Check protected routes
+  for (const [route, roles] of Object.entries(protectedRoutes)) {
+    if (pathname.startsWith(route)) {
+      if (!user) {
+        if (pathname.startsWith("/api/")) {
+          return NextResponse.json({ error: "Unauthorized" }, { status: 401 })
+        }
+        return NextResponse.redirect(new URL("/login", req.url))
+      }
+      if (role && !roles.includes(role)) {
+        if (pathname.startsWith("/api/")) {
+          return NextResponse.json({ error: "Forbidden" }, { status: 403 })
+        }
+        return NextResponse.redirect(new URL("/login", req.url))
+      }
+    }
+  }
+
+  return NextResponse.next()
+})
+
+export const config = {
+  matcher: [
+    "/dashboard/:path*",
+    "/admin/:path*",
+    "/api/:path*",
+    "/login",
+  ],
+}

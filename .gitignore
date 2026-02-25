@@ -1,15 +1,40 @@
+# Dependencies
 node_modules/
+
+# Next.js
 .next/
 out/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# OS
 .DS_Store
+Thumbs.db
+
+# Keys
 *.pem
+
+# Logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-.env*.local
-.vercel
+
+# Build
 *.tsbuildinfo
 next-env.d.ts
 
-# Local Netlify folder
+# Vercel
+.vercel
+
+# Netlify
 .netlify
+
+# IDE
+.idea/
+.vscode/settings.json
+
+# Testing
+coverage/

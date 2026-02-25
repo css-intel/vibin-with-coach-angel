@@ -1,0 +1,385 @@
+// prisma/schema.prisma
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ─── USERS & AUTH ────────────────────────────────────
+
+enum Role {
+  ADMIN
+  COACH
+  CLIENT
+}
+
+model User {
+  id              String    @id @default(cuid())
+  email           String    @unique
+  name            String?
+  phone           String?
+  avatarUrl       String?
+  role            Role      @default(CLIENT)
+  emailVerified   DateTime?
+  hashedPassword  String?
+  timezone        String    @default("America/New_York")
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+
+  // Relations
+  accounts           Account[]
+  sessions           Session[]
+  bookingsAsClient   Booking[]            @relation("ClientBookings")
+  bookingsAsCoach    Booking[]            @relation("CoachBookings")
+  payments           Payment[]
+  contractSignatures ContractSignature[]
+  sessionNotes       SessionNote[]        @relation("NoteAuthor")
+  clientNotes        SessionNote[]        @relation("NoteClient")
+  clientProfile      ClientProfile?
+  notifications      Notification[]
+
+  @@index([email])
+  @@index([role])
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.Text
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+  @@index([userId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+}
+
+// ─── CLIENT PROFILE ──────────────────────────────────
+
+model ClientProfile {
+  id               String   @id @default(cuid())
+  userId           String   @unique
+  intakeCompleted  Boolean  @default(false)
+  goals            String?  @db.Text
+  healthHistory    String?  @db.Text
+  emergencyContact String?
+  onboardingStep   Int      @default(0)
+  tags             String[] @default([])
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+// ─── COACHING PACKAGES ───────────────────────────────
+
+enum PackageType {
+  ONE_ON_ONE
+  GROUP
+}
+
+enum BillingType {
+  ONE_TIME
+  RECURRING
+}
+
+model CoachingPackage {
+  id                String      @id @default(cuid())
+  name              String
+  description       String?     @db.Text
+  packageType       PackageType
+  billingType       BillingType
+  priceInCents      Int
+  currency          String      @default("usd")
+  sessionCount      Int
+  sessionDuration   Int         @default(60)
+  maxGroupSize      Int?
+  recurringInterval String?
+  stripePriceId     String?     @unique
+  stripeProductId   String?
+  features          String[]    @default([])
+  isActive          Boolean     @default(true)
+  createdAt         DateTime    @default(now())
+  updatedAt         DateTime    @updatedAt
+
+  // Relations
+  enrollments Enrollment[]
+  contracts   ContractTemplate[]
+
+  @@index([isActive])
+}
+
+// ─── ENROLLMENT (Client ↔ Package) ───────────────────
+
+enum EnrollmentStatus {
+  PENDING_PAYMENT
+  ACTIVE
+  COMPLETED
+  CANCELLED
+  PAUSED
+}
+
+model Enrollment {
+  id                   String           @id @default(cuid())
+  clientId             String
+  packageId            String
+  status               EnrollmentStatus @default(PENDING_PAYMENT)
+  sessionsUsed         Int              @default(0)
+  sessionsTotal        Int
+  stripeSubscriptionId String?          @unique
+  startDate            DateTime         @default(now())
+  endDate              DateTime?
+  createdAt            DateTime         @default(now())
+  updatedAt            DateTime         @updatedAt
+
+  // Relations
+  package  CoachingPackage @relation(fields: [packageId], references: [id])
+  bookings Booking[]
+  payments Payment[]
+
+  @@index([clientId, status])
+  @@index([packageId])
+}
+
+// ─── AVAILABILITY & BOOKINGS ─────────────────────────
+
+model Availability {
+  id        String  @id @default(cuid())
+  coachId   String
+  dayOfWeek Int
+  startTime String
+  endTime   String
+  timezone  String  @default("America/New_York")
+  isActive  Boolean @default(true)
+
+  @@unique([coachId, dayOfWeek, startTime])
+  @@index([coachId, isActive])
+}
+
+model AvailabilityOverride {
+  id        String   @id @default(cuid())
+  coachId   String
+  date      DateTime @db.Date
+  startTime String?
+  endTime   String?
+  isBlocked Boolean  @default(false)
+  reason    String?
+
+  @@unique([coachId, date, startTime])
+  @@index([coachId, date])
+}
+
+enum BookingStatus {
+  SCHEDULED
+  COMPLETED
+  CANCELLED
+  NO_SHOW
+  RESCHEDULED
+}
+
+model Booking {
+  id                 String        @id @default(cuid())
+  clientId           String
+  coachId            String
+  enrollmentId       String?
+  scheduledAt        DateTime
+  duration           Int           @default(60)
+  status             BookingStatus @default(SCHEDULED)
+  meetingLink        String?
+  googleEventId      String?
+  cancellationReason String?
+  rescheduledFromId  String?
+  createdAt          DateTime      @default(now())
+  updatedAt          DateTime      @updatedAt
+
+  // Relations
+  client       User          @relation("ClientBookings", fields: [clientId], references: [id])
+  coach        User          @relation("CoachBookings", fields: [coachId], references: [id])
+  enrollment   Enrollment?   @relation(fields: [enrollmentId], references: [id])
+  sessionNotes SessionNote[]
+
+  @@index([clientId, status])
+  @@index([coachId, scheduledAt])
+  @@index([scheduledAt])
+}
+
+// ─── SESSION NOTES ───────────────────────────────────
+
+model SessionNote {
+  id        String   @id @default(cuid())
+  bookingId String
+  authorId  String
+  clientId  String
+  content   String   @db.Text
+  isPrivate Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  booking Booking @relation(fields: [bookingId], references: [id])
+  author  User    @relation("NoteAuthor", fields: [authorId], references: [id])
+  client  User    @relation("NoteClient", fields: [clientId], references: [id])
+
+  @@index([bookingId])
+  @@index([clientId])
+}
+
+// ─── PAYMENTS ────────────────────────────────────────
+
+enum PaymentStatus {
+  PENDING
+  SUCCEEDED
+  FAILED
+  REFUNDED
+  DISPUTED
+}
+
+model Payment {
+  id                    String        @id @default(cuid())
+  userId                String
+  enrollmentId          String?
+  amountInCents         Int
+  currency              String        @default("usd")
+  status                PaymentStatus @default(PENDING)
+  stripePaymentIntentId String?       @unique
+  stripeInvoiceId       String?
+  description           String?
+  failureReason         String?
+  refundedAt            DateTime?
+  createdAt             DateTime      @default(now())
+
+  user       User        @relation(fields: [userId], references: [id])
+  enrollment Enrollment? @relation(fields: [enrollmentId], references: [id])
+
+  @@index([userId])
+  @@index([status])
+  @@index([createdAt])
+}
+
+// ─── CONTRACTS ───────────────────────────────────────
+
+model ContractTemplate {
+  id        String   @id @default(cuid())
+  name      String
+  content   String   @db.Text
+  packageId String?
+  isActive  Boolean  @default(true)
+  version   Int      @default(1)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  package    CoachingPackage?  @relation(fields: [packageId], references: [id])
+  signatures ContractSignature[]
+
+  @@index([isActive])
+}
+
+model ContractSignature {
+  id            String   @id @default(cuid())
+  contractId    String
+  userId        String
+  signedAt      DateTime @default(now())
+  ipAddress     String
+  userAgent     String?  @db.Text
+  signatureData String   @db.Text
+  pdfUrl        String?
+
+  contract ContractTemplate @relation(fields: [contractId], references: [id])
+  user     User             @relation(fields: [userId], references: [id])
+
+  @@unique([contractId, userId])
+  @@index([userId])
+}
+
+// ─── NOTIFICATIONS ───────────────────────────────────
+
+enum NotificationType {
+  BOOKING_CONFIRMATION
+  BOOKING_REMINDER_24H
+  BOOKING_REMINDER_1H
+  BOOKING_CANCELLED
+  PAYMENT_RECEIVED
+  PAYMENT_FAILED
+  CONTRACT_PENDING
+  ONBOARDING_WELCOME
+  ONBOARDING_NUDGE
+  SESSION_NOTES_SHARED
+}
+
+model Notification {
+  id       String           @id @default(cuid())
+  userId   String
+  type     NotificationType
+  title    String
+  body     String           @db.Text
+  isRead   Boolean          @default(false)
+  metadata Json?
+  sentAt   DateTime         @default(now())
+
+  user User @relation(fields: [userId], references: [id])
+
+  @@index([userId, isRead])
+  @@index([sentAt])
+}
+
+// ─── RESOURCES (Digital Library) ─────────────────────
+
+model Resource {
+  id          String   @id @default(cuid())
+  title       String
+  description String?  @db.Text
+  fileUrl     String
+  fileType    String
+  category    String?
+  isPublic    Boolean  @default(false)
+  createdAt   DateTime @default(now())
+
+  @@index([category])
+  @@index([isPublic])
+}
+
+// ─── AUDIT LOG ───────────────────────────────────────
+
+model AuditLog {
+  id        String   @id @default(cuid())
+  userId    String?
+  action    String
+  entity    String
+  entityId  String
+  metadata  Json?
+  ipAddress String?
+  createdAt DateTime @default(now())
+
+  @@index([entity, entityId])
+  @@index([userId])
+  @@index([createdAt])
+}
