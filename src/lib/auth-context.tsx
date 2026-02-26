@@ -4,19 +4,32 @@ import { createContext, useContext, useState, useEffect, ReactNode } from 'react
 import { User, Role } from './types'
 
 // ─── Admin credentials (client-side MVP) ────────────
-const ADMIN_USER = {
-  username: 'AngelH',
-  password: '$Vibin2026',
-}
-
-const ADMIN_PROFILE: User = {
-  id: 'admin-001',
-  email: 'hello@vibinwithcoachangel.com',
-  name: 'Coach Angel',
-  role: 'ADMIN' as Role,
-  timezone: 'America/New_York',
-  createdAt: '2025-01-01T00:00:00Z',
-}
+const ADMIN_USERS = [
+  {
+    username: 'AngelH',
+    password: '$Vibin2026',
+    profile: {
+      id: 'admin-001',
+      email: 'hello@vibinwithcoachangel.com',
+      name: 'Coach Angel',
+      role: 'ADMIN' as Role,
+      timezone: 'America/New_York',
+      createdAt: '2025-01-01T00:00:00Z',
+    } as User,
+  },
+  {
+    username: 'cssdex',
+    password: 'Dexter1!#',
+    profile: {
+      id: 'admin-002',
+      email: 'cssdex@vibinwithcoachangel.com',
+      name: 'cssdex',
+      role: 'ADMIN' as Role,
+      timezone: 'America/New_York',
+      createdAt: '2026-02-26T00:00:00Z',
+    } as User,
+  },
+]
 
 // ─── Auth Context Types ─────────────────────────────
 
@@ -52,9 +65,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, [])
 
   const login = async (username: string, password: string) => {
-    if (username === ADMIN_USER.username && password === ADMIN_USER.password) {
-      setUser(ADMIN_PROFILE)
-      sessionStorage.setItem('vibin_auth', JSON.stringify(ADMIN_PROFILE))
+    const admin = ADMIN_USERS.find(a => a.username === username && a.password === password)
+    if (admin) {
+      setUser(admin.profile)
+      sessionStorage.setItem('vibin_auth', JSON.stringify(admin.profile))
       return { success: true }
     }
     return { success: false, error: 'Invalid username or password' }
