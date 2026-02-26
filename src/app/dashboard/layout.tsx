@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { useAuth } from '@/lib/auth-context'
 import DashboardSidebar from '@/components/dashboard/DashboardSidebar'
+import { Helpdesk } from '@/components/helpdesk'
 
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
   const { isAuthenticated, user } = useAuth()
@@ -32,6 +33,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
       <div className="ml-64 min-h-screen">
         {children}
       </div>
+      <Helpdesk clientId={user?.id || ''} />
     </div>
   )
 }

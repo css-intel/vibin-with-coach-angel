@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { useAuth } from '@/lib/auth-context'
 import AdminSidebar from '@/components/admin/AdminSidebar'
+import { Helpdesk } from '@/components/helpdesk'
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
   const { user, isLoading, isAuthenticated } = useAuth()
@@ -37,6 +38,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
       <div className="ml-64">
         {children}
       </div>
+      <Helpdesk clientId={user?.id || 'admin-001'} />
     </div>
   )
 }
