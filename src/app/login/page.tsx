@@ -69,6 +69,9 @@ export default function LoginPage() {
           <p className="text-sage-500 text-center mb-6 text-sm">
             Sign in to your account
           </p>
+          <p className="text-sage-400 text-center mb-2 text-[10px]">
+            v2.1
+          </p>
 
           {/* Toggle */}
           <div className="flex bg-sage-50 rounded-lg p-1 mb-6">

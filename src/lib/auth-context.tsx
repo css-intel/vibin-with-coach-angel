@@ -67,12 +67,21 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const login = async (username: string, password: string) => {
     const u = username.trim()
     const p = password.trim()
-    const admin = ADMIN_USERS.find(a => a.username.toLowerCase() === u.toLowerCase() && a.password === p)
+    console.log('[VIBIN AUTH v2] Login attempt:', { username: u, passwordLength: p.length })
+    console.log('[VIBIN AUTH v2] Available admins:', ADMIN_USERS.map(a => a.username))
+    const admin = ADMIN_USERS.find(a => {
+      const nameMatch = a.username.toLowerCase() === u.toLowerCase()
+      const passMatch = a.password === p
+      console.log('[VIBIN AUTH v2] Checking:', a.username, '| name match:', nameMatch, '| pass match:', passMatch)
+      return nameMatch && passMatch
+    })
     if (admin) {
+      console.log('[VIBIN AUTH v2] Login SUCCESS for', admin.profile.name)
       setUser(admin.profile)
       sessionStorage.setItem('vibin_auth', JSON.stringify(admin.profile))
       return { success: true }
     }
+    console.log('[VIBIN AUTH v2] Login FAILED - no matching admin')
     return { success: false, error: 'Invalid username or password' }
   }
 
