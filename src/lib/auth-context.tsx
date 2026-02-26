@@ -65,7 +65,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, [])
 
   const login = async (username: string, password: string) => {
-    const admin = ADMIN_USERS.find(a => a.username === username && a.password === password)
+    const u = username.trim()
+    const p = password.trim()
+    const admin = ADMIN_USERS.find(a => a.username.toLowerCase() === u.toLowerCase() && a.password === p)
     if (admin) {
       setUser(admin.profile)
       sessionStorage.setItem('vibin_auth', JSON.stringify(admin.profile))
